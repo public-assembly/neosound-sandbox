@@ -1,16 +1,13 @@
-import { Box, Text, BoxProps } from 'degen'
 import { socials } from '../utils/constants'
 
-interface SocialsProps extends BoxProps {}
-
-export function Socials({...props}: SocialsProps) {
+export function Socials({ ...props }) {
   return (
-    <Box display="flex" gap="4" {...props}>
+    <div className={`gap-4 flex flex-row ${props.className}`}>
       {socials.map((social) => 
-        <Box as="a" href={social.url} target="_blank" rel="noreferrer">
-          <Text>{social.platform}</Text>
-        </Box>
+        <a href={social.url} target="_blank" rel="noreferrer">
+          <span>{social.platform}</span>
+        </a>
       )}
-    </Box>
+    </div>
   )
 }
