@@ -1,18 +1,16 @@
 import { ConnectButton as RKConnectButton } from '@rainbow-me/rainbowkit'
-import { Box, BoxProps, Button, Text, Avatar } from 'degen'
+import { Button, Avatar } from 'degen'
 import { useAuth } from '../hooks/useAuth'
 
-export interface ConnectButtonProps extends BoxProps {}
-
-export function ConnectButton({ ...props }: ConnectButtonProps) {
+export function ConnectButton({ ...props }) {
   const { ensAvatar, ensName } = useAuth()
   
   return (
-    <Box {...props} className={['connect-button-wrapper']}>
+    <div {...props} className="connect-button-wrapper">
       <RKConnectButton.Custom>
         {({ account, chain, openAccountModal, openConnectModal, mounted }) => {
           return (
-            <Box
+            <div
               {...(!mounted && {
                 'aria-hidden': true,
                 style: {
@@ -23,21 +21,21 @@ export function ConnectButton({ ...props }: ConnectButtonProps) {
               })}>
               {(() => {
                 if (!mounted || !account || !chain) {
-                  return <Button onClick={openConnectModal} size="small" variant="tertiary">Connect Wallet</Button>
+                  return <button onClick={openConnectModal} size="small" variant="tertiary">Connect Wallet</button>
                 }
                 return (
-                  <Button onClick={openAccountModal} size="small" variant="tertiary">
-                    <Box display="flex" alignItems="center" gap="2">
+                  <button onClick={openAccountModal} size="small" variant="tertiary">
+                    <div className="flex align-items-center gap-2">
                       <Avatar label={ensName} src={ensAvatar || ''} size="6" />
                       {account.displayName}
-                    </Box>
-                  </Button>
+                    </div>
+                  </button>
                 )
               })()}
-            </Box>
+            </div>
           )
         }}
       </RKConnectButton.Custom>
-    </Box>
+    </div>
   )
 }
