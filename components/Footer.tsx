@@ -1,10 +1,9 @@
-import { Box } from 'degen'
 import { Socials } from './Socials'
 
 export function Footer() {
   return (
-    <Box as="footer" width="full" padding="4">
+    <footer className="flex flex-row justify-between items-center w-full px-8">
       <Socials />
-    </Box>
+    </footer>
   )
 }

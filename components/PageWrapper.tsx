@@ -1,18 +1,13 @@
-import { Box, BoxProps } from 'degen'
 import { Header } from './Header'
 import { Footer } from './Footer'
 
-interface PagewrapperProps extends BoxProps {
-  children?: JSX.Element
-}
-
-export function PageWrapper({ children, ...props }: PagewrapperProps) {
+export function PageWrapper({ children, ...props }: {children?: JSX.Element}) {
   return (
     <>
       <Header />
-      <Box as="main" {...props}>
+      <main {...props}>
         {children}
-      </Box>
+      </main>
       <Footer />
     </>
   )

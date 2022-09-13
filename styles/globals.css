@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 @import './theme.css';
 
 html,
@@ -27,14 +30,4 @@ footer {
 
 main {
   min-height: calc(100vh - (var(--footer-height) + var(--header-height)));
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
 }
