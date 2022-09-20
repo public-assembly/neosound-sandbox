@@ -5,8 +5,7 @@ export function ConnectButton({ ...props }) {
   return (
     <div
       className="connect-button-wrapper relative flex items-center pr-3 pl-1.5 py-1.5 rounded-2xl bg-slate-100 overflow-hidden"
-      {...props}
-    >
+      {...props}>
       <RKConnectButton.Custom>
         {({ account, chain, openAccountModal, openConnectModal, mounted }) => {
           return (

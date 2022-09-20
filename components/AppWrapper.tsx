@@ -3,7 +3,7 @@ import { getDefaultWallets, RainbowKitProvider, lightTheme } from '@rainbow-me/r
 import { createClient, chain, configureChains, WagmiConfig } from 'wagmi'
 import { publicProvider } from 'wagmi/providers/public'
 import { SWRConfig } from 'swr'
-import '@rainbow-me/rainbowkit/styles.css';
+import '@rainbow-me/rainbowkit/styles.css'
 
 const { chains, provider } = configureChains([chain.mainnet], [publicProvider()])
 const { connectors } = getDefaultWallets({
