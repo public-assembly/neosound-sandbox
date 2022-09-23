@@ -1,9 +1,8 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { useEditionQuery } from '@public-assembly/zora-editions-audio-minter'
+import { UpdateTitle, UpdateTokenPass } from '@public-assembly/assemble-curation-functions'
 
 const Home: NextPage = () => {
-  const { data } = useEditionQuery('0x674fb9ed86b847db9aee0a19e9055d5d2c0e6cc4')
   
   return (
     <div>
@@ -14,7 +13,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
         */}
       </Head>
-      <div>{JSON.stringify(data, null, 2)}</div>
+      <UpdateTitle curationContract={'0x34fe32e6442d14d923953a537b8163365630b5a7'} title={'secondTitle'} />
     </div>
   )
 }
