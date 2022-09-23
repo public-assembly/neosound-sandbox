@@ -13,11 +13,14 @@ export function ConnectButton({ ...props }) {
             <>
               {(() => {
                 if (!mounted || !account || !chain) {
-                  return <button onClick={openConnectModal}>Connect Wallet</button>
+                  return <button onClick={openConnectModal} className="text-sm">Connect Wallet</button>
+                }
+                if (chain.unsupported) {
+                  return <div className="text-red-400 text-sm">&nbsp;&#x26A0; Wrong Network</div>
                 }
                 return (
                   <button onClick={openAccountModal}>
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 text-sm">
                       <Avatar />
                       {account.displayName}
                     </div>
