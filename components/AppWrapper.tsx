@@ -7,7 +7,7 @@ import '@rainbow-me/rainbowkit/styles.css';
 
 const { chains, provider } = configureChains([chain.mainnet, chain.goerli], [publicProvider()])
 const { connectors } = getDefaultWallets({
-  appName: 'BlockSyncer',
+  appName: 'NeoSound',
   chains,
 })
 
