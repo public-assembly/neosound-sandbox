@@ -5,9 +5,9 @@ import { publicProvider } from 'wagmi/providers/public'
 import { SWRConfig } from 'swr'
 import '@rainbow-me/rainbowkit/styles.css';
 
-const { chains, provider } = configureChains([chain.mainnet], [publicProvider()])
+const { chains, provider } = configureChains([chain.mainnet, chain.goerli], [publicProvider()])
 const { connectors } = getDefaultWallets({
-  appName: 'BlockSyncer',
+  appName: 'NeoSound',
   chains,
 })
 
