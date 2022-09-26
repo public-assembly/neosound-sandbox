@@ -43,7 +43,7 @@ const Home: NextPage = () => {
             </button>
           </label>
           <label className="block my-4">
-            <span className="text-gray-700">Update Title</span>
+            <span className="text-gray-700">Update Token Pass</span>
             <input
               className="p-2 mt-2 block w-full rounded-md bg-slate-200"
               onChange={(e) => setTokenPass(e.target.value)}
