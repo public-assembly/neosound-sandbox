@@ -1,10 +1,23 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { useEditionQuery } from '@public-assembly/zora-editions-audio-minter'
+import { useOwnerCurationFunctions } from '@public-assembly/assemble-curation-functions'
+import { useState } from 'react'
 
 const Home: NextPage = () => {
-  const { data } = useEditionQuery('0x674fb9ed86b847db9aee0a19e9055d5d2c0e6cc4')
-  
+  // Set curation contract address as an environment variable
+  const curationContract = process.env.NEXT_CURATION_CONTRACT_ADDRESS as string
+
+  // Add a useState hook to handle the relevant input
+  const [title, setTitle] = useState('')
+  const [tokenPass, setTokenPass] = useState('')
+
+  // Destructure the functions you want to invoke from the useOwnerCurationFunctions hook and pass in the appropriate props
+  const { updateTitleWrite, updateTokenPassWrite } = useOwnerCurationFunctions({
+    curationContract,
+    title,
+    tokenPass,
+  })
+
   return (
     <div>
       <Head>
@@ -14,7 +27,35 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
         */}
       </Head>
-      <div>{JSON.stringify(data, null, 2)}</div>
+
+      <div className="mx-auto max-w-sm">
+        <div className="flex flex-wrap">
+          <label className="block my-4">
+            <span className="text-gray-700">Update Title</span>
+            <input
+              className="p-2 mt-2 block w-full rounded-md bg-slate-200"
+              onChange={(e) => setTitle(e.target.value)}
+            />
+            <button
+              className="bg-blue-500 w-48 text-center p-2 mt-4 rounded-md text-white hover:bg-blue-600"
+              onClick={() => updateTitleWrite?.()}>
+              Update Title
+            </button>
+          </label>
+          <label className="block my-4">
+            <span className="text-gray-700">Update Token Pass</span>
+            <input
+              className="p-2 mt-2 block w-full rounded-md bg-slate-200"
+              onChange={(e) => setTokenPass(e.target.value)}
+            />
+            <button
+              className="bg-blue-500 w-48 text-center p-2 mt-4 rounded-md text-white hover:bg-blue-600"
+              onClick={() => updateTokenPassWrite?.()}>
+              Update Token Pass
+            </button>
+          </label>
+        </div>
+      </div>
     </div>
   )
 }
