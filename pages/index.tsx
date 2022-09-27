@@ -1,4 +1,5 @@
 import type { NextPage } from 'next'
+import Link from 'next/link'
 import Head from 'next/head'
 import { useEditionQuery } from '@public-assembly/zora-editions-audio-minter'
 
@@ -14,6 +15,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
         */}
       </Head>
+
       <div>{JSON.stringify(data, null, 2)}</div>
     </div>
   )
