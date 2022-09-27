@@ -9,9 +9,11 @@ const curationContractAddress = '0xdb5D0A79d700c5F823b822F97631DbA2d1E31A63'
 
 const Curation: NextPage = () => {
   const [updatedTitle, setUpdatedTitle] = useState('')
-  const { updateTitleWrite } = useOwnerCurationFunctions({
+  const [updatedTokenPass, setUpdatedTokenPass] = useState('')
+  const { updateTitleWrite, updateTokenPassWrite } = useOwnerCurationFunctions({
     curationContractAddress,
     updatedTitle,
+    updatedTokenPass
   })
 
   return (
@@ -26,6 +28,18 @@ const Curation: NextPage = () => {
         <button
           className="bg-blue-500 w-48 text-center p-2 mt-4 rounded-md text-white hover:bg-blue-600"
           onClick={() => updateTitleWrite?.()}>
+          Update Title
+        </button>
+      </label>
+      <label className="block my-4">
+        <span className="text-gray-700">Update Token Pass</span>
+        <input
+          className="p-2 mt-2 block w-full rounded-md bg-slate-200"
+          onChange={(e) => setUpdatedTokenPass(e.target.value)}
+        />
+        <button
+          className="bg-blue-500 w-48 text-center p-2 mt-4 rounded-md text-white hover:bg-blue-600"
+          onClick={() => updateTokenPassWrite?.()}>
           Update Title
         </button>
       </label>
