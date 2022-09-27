@@ -790,6 +790,11 @@
   resolved "https://registry.yarnpkg.com/@public-assembly/assemble-curation-functions/-/assemble-curation-functions-0.0.6.tgz#218de48c05397fd188afbbe44e180e5cb8c40688"
   integrity sha512-QHQFwT2TUCnscNQ+ACXhihCWpDKqB+/UeVgMebWX8Sr4nYStDD1P/9b6S9+xKXKuii9kfO3+MvrG7UnqIbLypg==
 
+"@public-assembly/assemble-curation-validation@^0.0.0":
+  version "0.0.0"
+  resolved "https://registry.yarnpkg.com/@public-assembly/assemble-curation-validation/-/assemble-curation-validation-0.0.0.tgz#37b8c66a712c291e019690cc221120222ae2f85c"
+  integrity sha512-Epojj+5MwD9kKse5YGtblk8XjgneXwwdCaemSLciB82jLSlZUl2eE++IRkKQSAoajPcHOKdpzjRK6r3gcPYkkA==
+
 "@public-assembly/zora-editions-audio-minter@^0.0.0":
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/@public-assembly/zora-editions-audio-minter/-/zora-editions-audio-minter-0.0.0.tgz#3f4efd7c4b22fd52000e4b9b4356fde8516b6953"
