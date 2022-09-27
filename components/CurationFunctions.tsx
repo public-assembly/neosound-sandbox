@@ -57,14 +57,16 @@ export const CurationFunctions = ({ userAddress }: WalletValidationProps) => {
         />
         <button
           disabled={!isCurationPassHolder}
-          className="bg-blue-500 w-48 text-center p-2 mt-4 rounded-md text-white hover:bg-blue-600"
+          className="bg-blue-500 w-48 text-center p-2 mt-4 rounded-md text-white hover:bg-blue-600  disabled:bg-blue-200"
           onClick={() => removeListingWrite?.()}>
           Remove Listing
         </button>
       </label>
-      <div className='grid gap-y-4'>
+      <div className="grid gap-y-4">
         <div className="text-black">
-          {'Curation Pass Address: '}<br></br>{curationPassAddress}
+          {'Curation Pass Address: '}
+          <br></br>
+          {curationPassAddress}
         </div>
         <div className="text-black">
           {'Curation Pass Balance: ' + userCurationPassBalance}
