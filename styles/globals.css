@@ -31,3 +31,11 @@ footer {
 main {
   min-height: calc(100vh - (var(--footer-height) + var(--header-height)));
 }
+
+/* UTILS */
+.raw-displayer > code,
+.raw-displayer > code > pre {
+  font-family: 'SFMono-Regular', Consolas, Liberation Mono, Menlo, monospace !important;
+  line-height: 1.25;
+  font-size: 12px;
+}
