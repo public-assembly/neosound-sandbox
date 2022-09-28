@@ -10,8 +10,8 @@ const Home: NextPage = () => {
   const [view, setView] = useState('list')
 
   return (
-    <div className="px-12  mt-[100px]">
-      <ViewsToggle setView={setView} />
+    <div className="mt-[150px]">
+      <ViewsToggle setView={setView} view={view} />
       {view === 'grid' ? <GridView /> : <ListView />}
     </div>
   )

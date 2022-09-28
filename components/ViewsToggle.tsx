@@ -2,22 +2,36 @@ import Image from 'next/image'
 
 interface ViewsToggleProps {
   setView: (view: string) => void
+  view: string
 }
 
-export const ViewsToggle = ({ setView }: ViewsToggleProps) => {
+export const ViewsToggle = ({ setView, view }: ViewsToggleProps) => {
   return (
-    <div className="flex items-center justify-end w-full py-4 gap-4 ">
-      <button onClick={() => setView('grid')}>
+    <div className="pa_views-toggle fixed top-[100px] right-6 sm:right-12 z-50 flex justify-end h-[50px] box-border gap-2 w-full ">
+      <button onClick={() => setView('grid')} className="pa_views-toggle__grid">
         <Image
-          src={'/icons/grid.svg'}
+          src={`${
+            view == 'grid'
+              ? '/neosound-icons/navIcons/grid-current.svg'
+              : '/neosound-icons/navIcons/grid-default.svg'
+          }`}
           alt="Grid View"
-          width={48}
-          height={48}
+          width={32}
+          height={32}
           layout="fixed"
         />
       </button>
-      <button onClick={() => setView('list')}>
-        <Image src={'/icons/list.svg'} alt="List View" width={48} height={48} />
+      <button onClick={() => setView('list')} className="pa_views-toggle__list">
+        <Image
+          src={`${
+            view == 'list'
+              ? '/neosound-icons/navIcons/list-pressed.svg'
+              : '/neosound-icons/navIcons/list-default.svg'
+          }`}
+          alt="List View"
+          width={32}
+          height={32}
+        />
       </button>
     </div>
   )

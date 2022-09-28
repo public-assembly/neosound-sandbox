@@ -5,45 +5,45 @@ interface GridCardProps {
   artist: string
   curator: string
   artCover: string
-  duration: string
 }
 
-export const GridCard = ({
-  title,
-  artist,
-  curator,
-  artCover,
-  duration,
-}: GridCardProps) => {
+export const GridCard = ({ title, artist, curator, artCover }: GridCardProps) => {
   return (
-    <div className="rounded-xl aspect-square w-full flex flex-col justify-between border border-pink-400 backdrop-blur-[50px]">
-      <div className="p-4 text-white">
-        <div className="flex flex-col justify-start">
-          <div className="w-32 h-32">
-            <Image
-              src={artCover}
-              alt={`${title} album cover`}
-              layout="responsive"
-              width={100}
-              height={100}
-              objectFit="cover"
-            />
-          </div>
-          <span className="text-sm mt-2">Curated by: {curator}</span>
-        </div>
-        <div className="flex flex-col mt-2">
-          <span className="text-2xl">{title}</span>
-          <span className="text-lg">{artist}</span>
-          <span className="text-md font-mono">{duration}</span>
-        </div>
+    <div className="aspect-square shadow-xl shadow-neutral-900/70 relative">
+      <div className="absolute inset-0">
+        <Image
+          src={artCover}
+          alt={`${title} album cover`}
+          layout="responsive"
+          width={100}
+          height={100}
+          objectFit="cover"
+        />
       </div>
-      <div className="font-semibold flex items-center max-h-[20%]  w-full justify-between border-t border-pink-400 ">
-        <button className="text-pink-400 border-r border-pink-400 flex w-full items-center justify-center px-6 py-3 ">
-          Mint
-        </button>
-        <button className="text-pink-400 flex w-full items-center justify-center px-6 py-3 ">
-          See detials
-        </button>
+      <div className="opacity-0 hover:opacity-100 duration-300 absolute inset-0 z-10 flex flex-col justify-between bg-[rgba(0,0,0,0.4)] p-6 text-stone-300 font-semibold">
+        <div>
+          <span className="uppercase">
+            Curated by: <span className="font-medium">{curator}</span>
+          </span>
+          <div className="pa-grid--card__title text-xl mt-6 font-medium">{title}</div>
+          <div className="pa-grid--card__title text-lg font-thin mb-2">{artist}</div>
+          <Image
+            src={'/neosound-icons/UI/moreDetails/moreDetails-default.svg'}
+            alt={`${title} album cover`}
+            layout="fixed"
+            width={24}
+            height={24}
+            objectFit="cover"
+          />
+        </div>
+        <div className="flex w-full justify-end">
+          <Image
+            src={'/neosound-icons/player/play/play-default.svg'}
+            alt="Play"
+            width={48}
+            height={48}
+          />
+        </div>
       </div>
     </div>
   )
