@@ -790,11 +790,6 @@
   resolved "https://registry.yarnpkg.com/@public-assembly/audio-player-ui/-/audio-player-ui-0.0.4.tgz#5f5c279bad394308ceb121f03acf712ece37a6f6"
   integrity sha512-zo5FPbHVvbmSbUhf+uFi0cGG0DlpQUkizL6c2d4Cyo5ynMEyavpfZdEvuwn7md+NcpX1vJ1vUgcEmPodMXDcKQ==
 
-"@public-assembly/zora-editions-audio-minter@^0.0.0":
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/@public-assembly/zora-editions-audio-minter/-/zora-editions-audio-minter-0.0.0.tgz#3f4efd7c4b22fd52000e4b9b4356fde8516b6953"
-  integrity sha512-RZHtA7VflLWyfEiAmrYtNeBf/CXoF9nazywENGMGKhXm01HvjTCp9RnZJuS4I12eluJRmdacmngShe4ktZZ4mw==
-
 "@rainbow-me/rainbowkit@^0.5.0":
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/@rainbow-me/rainbowkit/-/rainbowkit-0.5.0.tgz#6fcb2ec343e789ba1fa260d8bfa36abab2b79a48"
