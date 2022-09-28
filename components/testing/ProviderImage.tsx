@@ -1,8 +1,8 @@
 import React from 'react'
-import { useDropsContextProvider, addIPFSGateway } from "@public-assembly/zora-drops-utils";
+import { useDropContextProvider, addIPFSGateway } from "@public-assembly/zora-drops-utils";
 
 export function ProviderImage() {
-  const { data } = useDropsContextProvider()
+  const { data } = useDropContextProvider()
   
   const src = React.useMemo(() =>
     data?.editionMetadata?.imageURI ? addIPFSGateway(data?.editionMetadata?.imageURI) : '',

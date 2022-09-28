@@ -790,10 +790,10 @@
   resolved "https://registry.yarnpkg.com/@pedrouid/environment/-/environment-1.0.1.tgz#858f0f8a057340e0b250398b75ead77d6f4342ec"
   integrity sha512-HaW78NszGzRZd9SeoI3JD11JqY+lubnaOx7Pewj5pfjqWXOEATpeKIFb9Z4t2WBUK2iryiXX3lzWwmYWgUL0Ug==
 
-"@public-assembly/zora-drops-utils@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@public-assembly/zora-drops-utils/-/zora-drops-utils-0.0.2.tgz#e76f1e1d3b4f54faf112fb0658d0d13b41147660"
-  integrity sha512-0NopLgtGvlHFL/6UkiUAG8gBeapvZxRzayrtCeex0vhgrOKZqFk3h0erfgnxzOCBRGZlF8DhafPxVPAq05Wofg==
+"@public-assembly/zora-drops-utils@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@public-assembly/zora-drops-utils/-/zora-drops-utils-0.0.5.tgz#b21132e6aa0c8d4e185dab1876efaff8cd850e17"
+  integrity sha512-DIT8ZW1+51iJ5liC7Coas67+cx4nxQmq8LyAqptBx84bG2VcWjAp0ha06YyLiVM4OctYsMjHVPKPcmvP1UTtfA==
 
 "@rainbow-me/rainbowkit@^0.5.0":
   version "0.5.0"

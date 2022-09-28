@@ -1,8 +1,10 @@
 import React from 'react'
-import { returnDropEndpoint, DropsContextProvider } from '@public-assembly/zora-drops-utils'
-import { RawDisplayer } from './../RawDisplayer'
+import { returnDropEndpoint, DropContextProvider, DropsContextProvider } from '@public-assembly/zora-drops-utils'
+import { RawDisplayer } from '../RawDisplayer'
 import { TestProviderConsumer } from './TestProviderConsumer'
 import { TestHooks } from './TestingHooks'
+import { DropsArray } from './DropsArray'
+import { TestArrayProviderConsumer } from './TestArrayProviderConsumer'
 
 const goreliEndpoint = returnDropEndpoint('5')
 const mainnetEndpoint = returnDropEndpoint('1')
@@ -11,7 +13,6 @@ const TEST_CONTRACTS = [
   '0xb7a791c3b5a0aa833e638250f982ebd29194f02c',
   '0x674fb9ed86b847db9aee0a19e9055d5d2c0e6cc4',
   '0x2f0146ca3c62a33177959565ae9df2f86cf01551',
-  '0x2f0146ca3c62a33177959565ae9df2f86cf015',
 ]
 
 export function TestComponent() {
@@ -29,6 +30,18 @@ export function TestComponent() {
         goerli: goreliEndpoint
       }} />
       <br />
+      <h1 className="text-xl">Array of Drops:</h1>
+      <br />
+      <DropsArray contracts={TEST_CONTRACTS} />
+      <br />
+      <hr className="border border-b-0 border-dashed"/>
+      <br />
+      <DropsContextProvider contractAddresses={TEST_CONTRACTS} refreshInterval={0}>
+        <TestArrayProviderConsumer />
+      </DropsContextProvider>
+      <br />
+      <hr className="border border-b-0 border-dashed"/>
+      <br />
       <h1 className="text-xl pb-2">Select A Contract:</h1>
       <select
         className="border border-solid border-1 p-2 border-black rounded-md"
@@ -42,9 +55,9 @@ export function TestComponent() {
       <br />
       <hr className="border border-b-0 border-dashed"/>
       <br />
-      <DropsContextProvider contractAddress={address}>
+      <DropContextProvider contractAddress={address}>
         <TestProviderConsumer />
-      </DropsContextProvider>
+      </DropContextProvider>
       <br />
       <hr className="border border-b-0 border-dashed"/>
       <br />

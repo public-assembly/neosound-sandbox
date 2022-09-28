@@ -1,13 +1,13 @@
-import { useDropsRequest, useSWRDropsRequest } from '@public-assembly/zora-drops-utils'
+import { useDrop, useSWRDrop } from '@public-assembly/zora-drops-utils'
 import { RawDisplayer } from './../RawDisplayer'
 
 export function TestHooks({contractAddress}: {contractAddress: string}) {
-  const { data, error, isLoading, isValidAddress } = useDropsRequest({
+  const { data, error, isLoading, isValidAddress } = useDrop({
     contractAddress: contractAddress,
     networkId: '1'
   })
 
-  const { data: swrData, error: swrError, isLoading: swrLoading, isValidAddress: swrValid } = useSWRDropsRequest({
+  const { data: swrData, error: swrError, isLoading: swrLoading, isValidAddress: swrValid } = useSWRDrop({
     contractAddress: contractAddress,
     networkId: '1'
   })
