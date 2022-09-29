@@ -1,28 +1,32 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import { AudioPlayer } from '@public-assembly/audio-player-ui'
-import { fakePlaylist } from 'utils/fakePlaylist'
-import { useState } from 'react'
+import { EditionsAudioPlayer } from "@public-assembly/audio-player-ui";
+import { DropsContextProvider } from '@public-assembly/zora-drops-utils'
+import { useContractRead } from 'wagmi'
+import Contract from './../abi/CurationManager.json'
+import { TrackListing } from '../components/TrackListing'
 
-const Home: NextPage = () => {
-  const [nft, setNFT] = useState(fakePlaylist[0])
-  
+function Page() {
+  const { data } = useContractRead({
+    addressOrName: "0x6422Bf82Ab27F121a043d6DE88b55FA39e2ea292", 
+    contractInterface: Contract.abi,
+    functionName: 'viewAllListings',
+  })
+
   return (
-    <div>
-      <Head>
-        <title>Public Assembly: Audio Player UI</title>
-      </Head>
-      {fakePlaylist.map((nft) => (
-        <div
-          key={nft.id}
-          className=" mb-4 cursor-pointer border p-3"
-          onClick={() => setNFT(nft)}>
-          {nft.artist} - {nft.title}
-        </div>
-      ))}
-      <AudioPlayer playlist={fakePlaylist} nft={nft} />
-    </div>
-  )
+    <section className="flex flex-col gap-4">
+      <div>
+        <h1 className="text-xl mb-4">Consuming Curation Playlist</h1>
+        <hr className="border border-b-0 border-dashed"/>
+      </div>
+      {data && data.length &&
+        <DropsContextProvider contractAddresses={data as string[]}>
+          <TrackListing />
+        </DropsContextProvider>
+      }
+      {data && data.length && <EditionsAudioPlayer
+        contractAddresses={data as string[]}
+      />}
+    </section>
+  );
 }
 
-export default Home
+export default Page
