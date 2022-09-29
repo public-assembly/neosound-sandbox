@@ -3,8 +3,6 @@ import { useDropsContextProvider } from "@public-assembly/zora-drops-utils";
 import { useEnsName } from 'wagmi'
 
 export function TrackThumbnail({ data }: { data: any }) {
-  if (!data) return null
-  
   const creator = React.useMemo(() => data?.creator && data?.creator,[data])
   const name = React.useMemo(() => data?.name && data?.name,[data])
 
