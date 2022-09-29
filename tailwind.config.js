@@ -3,5 +3,6 @@ module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/@public-assembly/audio-player-ui/**/*.{js,ts,jsx,tsx}"
   ]
 }
