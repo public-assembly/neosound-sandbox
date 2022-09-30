@@ -10,7 +10,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Barlow', sans-serif;
-  background-color: #121212;
+  scroll-behavior: smooth;
 }
 
 a {
@@ -24,6 +24,12 @@ a {
 
 header {
   height: var(--header-height);
+  background-color: var(--bg-col);
+}
+
+//NAV LINKS
+.pa_nav__item {
+  color: ;
 }
 
 footer {

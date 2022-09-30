@@ -29,19 +29,46 @@ export const ListItem = ({ title, artist, curator, artCover }: ListItemProps) =>
             <Image
               src={'/neosound-icons/player/play/play-default.svg'}
               alt="Play"
-              width={32}
-              height={32}
+              width={48}
+              height={48}
+              layout="fixed"
             />
           </div>
         )}
       </div>
       <div className="pa-listItem__artist-title flex justify-between flex-col gap-1 sm:gap-0  sm:flex-row sm:items-center w-full px-2 sm:px-8">
-        <span className="text-md sm:text-xl ">
-          {artist} - {title}
-        </span>
+        <div className="flex items-center ">
+          <span className="text-md sm:text-xl sm:mr-4 ">
+            {artist} - {title}
+          </span>
+          {isHovered && (
+            <button className="w-6 h-6 hidden sm:block">
+              <Image
+                src={'/neosound-icons/UI/moreDetails/moreDetails-default.svg'}
+                alt="More details"
+                layout="responsive"
+                width={24}
+                height={24}
+                objectFit="cover"
+              />
+            </button>
+          )}
+        </div>
         <span className="pa-listItem__curator text-xs sm:text-sm uppercase font-thin ">
           Curated by: {curator}
         </span>
+        {isHovered && (
+          <button className="w-7 h-7 fixed  right-5 top-[50%] translate-y-[-50%]  sm:hidden">
+            <Image
+              src={'/neosound-icons/UI/moreDetails/moreDetails-default.svg'}
+              alt="More details"
+              layout="responsive"
+              width={12}
+              height={12}
+              objectFit="cover"
+            />
+          </button>
+        )}
       </div>
     </div>
   )
