@@ -7,6 +7,10 @@ const pages = [
     title: 'Present.Material'
   },
   {
+    slug: '/popular-mint',
+    title: 'Popular Mint'
+  },
+  {
     slug: '/dmbk-mint',
     title: 'DMBK Mint'
   },
