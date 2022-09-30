@@ -10,6 +10,10 @@ const pages = [
     slug: '/mock-playlist',
     title: 'Mock Playlist'
   },
+  {
+    slug: '/drops-mint',
+    title: 'Drops Mint'
+  },
 ]
 
 export function Navigation() {
