@@ -25,9 +25,7 @@ export function MintTrackListing() {
   return (
     <div className="flex flex-col mb-8">
       {data && data.map((edition: any) =>
-        <div>
-          <DropMintTest collectionAddress={edition?.address} />
-        </div>
+        <DropMintTest key={edition?.address} collectionAddress={edition?.address} />
       )}
     </div>
   )
