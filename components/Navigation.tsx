@@ -4,15 +4,15 @@ import { useRouter } from "next/router"
 const pages = [
   {
     slug: '/',
-    title: 'Drops Playlist'
+    title: 'Present.Material'
+  },
+  {
+    slug: '/dmbk-mint',
+    title: 'DMBK Mint'
   },
   {
     slug: '/mock-playlist',
-    title: 'Mock Playlist'
-  },
-  {
-    slug: '/drops-mint',
-    title: 'Drops Mint'
+    title: 'Web2 Playlist'
   },
 ]
 
