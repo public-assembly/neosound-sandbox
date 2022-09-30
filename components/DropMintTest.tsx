@@ -50,7 +50,7 @@ function MintUI() {
   return (
     <div className="grid p-4 grid-cols-3 border border-solid border-1 rounded-xl gap-4">
       <div className="aspect-square h-full relative rounded-xl overflow-hidden shadow-sm">
-        <img className="inset-0 absolute" src={src} />
+        <img className="inset-0 absolute object-cover" src={src} />
       </div>
       <div className="flex flex-col col-span-2 h-full justify-between">
         <div>
