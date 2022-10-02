@@ -1,4 +1,5 @@
 import 'styles/globals.css'
+import 'styles/drop.css'
 import type { AppProps } from 'next/app'
 import { AppWrapper, PageWrapper } from './../components'
 

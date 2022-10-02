@@ -1,0 +1,51 @@
+/* ADDING CUSTOM STYLES TO DROPS UI */
+.drops-ui__metadata--copy {
+  color: red;
+  font-family: verdana;
+  font-size: 10px;
+}
+
+.drops-ui__metadata--title {
+  color: purple;
+  font-family: 'Brush Script MT', cursive;
+}
+
+.drops-ui__thumbnail--component {
+  transform: rotate(-3deg);
+  filter: drop-shadow(0 2px 10px rgb(160, 0, 210));
+}
+
+.drops-ui__mint-button--component {
+  transform: rotate(3deg);
+  z-index: 100;
+  position: relative;
+}
+
+.drops-ui__mint-button--component button {
+  background-color: pink;
+  border-radius: 30px;
+  border: inset 3px green;
+  font-family: 'Brush Script MT', cursive;
+  filter: drop-shadow(0 2px 10px rgb(160, 0, 210));
+}
+
+.drops-ui__metadata--component {
+  background-color: #cbcbcb;
+  padding: 30px;
+  border-radius: 30px;
+  filter: drop-shadow(0 2px 10px rgb(160, 0, 210));
+  z-index: 10;
+}
+
+.drops-ui__sales-info--component {
+  background-color: pink;
+  padding: 20px;
+  overflow: hidden;
+  font-family: 'comic sans ms';
+}
+
+.drops-ui__sales-info--collection-address {
+  font-size: 30px;
+  line-height: 1;
+  color: red;
+}
