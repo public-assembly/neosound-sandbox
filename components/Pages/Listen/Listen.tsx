@@ -1,8 +1,7 @@
 import { ViewsToggle } from 'components/ViewsToggle'
-import { GridView } from 'components/Views/Grid'
+import { GridView } from 'components/Views/Grid/GridView'
 import { ListView } from 'components/Views/List/ListView'
-import { useViewsToggle, ViewProvider } from 'context/viewsContext'
-import { MintContextProvider } from 'context/mintingModalsContext'
+import { useViewsToggle } from 'context/viewsContext'
 
 const Listen = () => {
   const { view } = useViewsToggle()
