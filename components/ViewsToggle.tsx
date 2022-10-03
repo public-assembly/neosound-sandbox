@@ -1,12 +1,9 @@
 import Image from 'next/image'
+import { useViewsToggle } from 'context/viewsContext'
 import { useState } from 'react'
 
-interface ViewsToggleProps {
-  setView: (view: string) => void
-  view: string
-}
-
-export const ViewsToggle = ({ setView, view }: ViewsToggleProps) => {
+export const ViewsToggle = () => {
+  const { view, setView } = useViewsToggle()
   const [hoverGrid, setHoverGrid] = useState(false)
   const [hoverList, setHoverList] = useState(false)
   return (

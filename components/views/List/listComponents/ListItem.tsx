@@ -1,26 +1,25 @@
 import Image from 'next/image'
 import { useState } from 'react'
-import ConnectWalletModal from '../../../Modals/ConnectWalletModal'
+import ConnectWalletModal from 'components/Modals/ConnectWalletModal'
+import { useMintingContext } from 'context/mintingModalsContext'
+import { useAuth } from 'hooks/useAuth'
+import DetailsModal from 'components/Modals/DetailsModal'
 
 interface ListItemProps {
   title: string
   artist: string
   curator: string
   artCover: string
-  openConnectWalletModal: boolean
-  setOpenConnectWalletModal: (value: boolean) => void
-  address: string | undefined
 }
 
-export const ListItem = ({
-  title,
-  artist,
-  curator,
-  artCover,
-  openConnectWalletModal,
-  setOpenConnectWalletModal,
-  address,
-}: ListItemProps) => {
+export const ListItem = ({ title, artist, curator, artCover }: ListItemProps) => {
+  const {
+    openConnectWalletModal,
+    setOpenConnectWalletModal,
+    openDetailsModal,
+    setOpenDetailsModal,
+  } = useMintingContext()
+  const { address } = useAuth()
   const [isHovered, setIsHovered] = useState(false)
   return (
     <>
@@ -57,7 +56,7 @@ export const ListItem = ({
             {isHovered && (
               <button
                 className="w-6 h-6 hidden sm:block"
-                onClick={() => setOpenConnectWalletModal(true)}>
+                onClick={() => setOpenDetailsModal(true)}>
                 <Image
                   src={'/neosound-icons/UI/moreDetails/moreDetails-default.svg'}
                   alt="More details"
@@ -89,6 +88,14 @@ export const ListItem = ({
           )}
         </div>
       </div>
+      {openDetailsModal && (
+        <DetailsModal
+          openDetailsModal={openDetailsModal}
+          setOpenDetailsModal={setOpenDetailsModal}
+          setOpenConnectWalletModal={setOpenConnectWalletModal}
+        />
+      )}
+
       {openConnectWalletModal && !address && (
         <ConnectWalletModal
           openConnectWalletModal={openConnectWalletModal}

@@ -1,5 +1,7 @@
 import ConnectWalletModal from 'components/Modals/ConnectWalletModal'
 import DetailsModal from 'components/Modals/DetailsModal'
+import { useMintingContext } from 'context/mintingModalsContext'
+import { useAuth } from 'hooks/useAuth'
 import Image from 'next/image'
 
 interface GridCardProps {
@@ -7,24 +9,17 @@ interface GridCardProps {
   artist: string
   curator: string
   artCover: string
-  openDetailsModal: boolean
-  setOpenDetailsModal: (value: boolean) => void
-  openConnectWalletModal: boolean
-  setOpenConnectWalletModal: (value: boolean) => void
-  address: string | undefined
 }
 
-export const GridCard = ({
-  title,
-  artist,
-  curator,
-  artCover,
-  openDetailsModal,
-  setOpenDetailsModal,
-  openConnectWalletModal,
-  setOpenConnectWalletModal,
-  address,
-}: GridCardProps) => {
+export const GridCard = ({ title, artist, curator, artCover }: GridCardProps) => {
+  const {
+    openConnectWalletModal,
+    setOpenConnectWalletModal,
+    setOpenDetailsModal,
+    openDetailsModal,
+  } = useMintingContext()
+  const { address } = useAuth()
+
   return (
     <>
       <div className="aspect-square  shadow-lg shadow-neutral-200/10 relative">

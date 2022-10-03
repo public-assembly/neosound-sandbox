@@ -4,6 +4,8 @@ import { createClient, chain, configureChains, WagmiConfig } from 'wagmi'
 import { publicProvider } from 'wagmi/providers/public'
 import { SWRConfig } from 'swr'
 import '@rainbow-me/rainbowkit/styles.css'
+import { ViewProvider } from 'context/viewsContext'
+import { MintContextProvider } from 'context/mintingModalsContext'
 
 const { chains, provider } = configureChains([chain.mainnet], [publicProvider()])
 const { connectors } = getDefaultWallets({
@@ -16,6 +18,8 @@ const wagmiClient = createClient({
   connectors,
   provider,
 })
+
+//IN CUSTOMIZATION PROGRESS
 const myCustomTheme: Theme = {
   blurs: {
     modalOverlay: '#050a09',
@@ -85,7 +89,9 @@ export function AppWrapper({ children }: { children: JSX.Element }) {
             showOnShallow={true}
             options={{ showSpinner: false }}
           />
-          {children}
+          <ViewProvider>
+            <MintContextProvider>{children}</MintContextProvider>
+          </ViewProvider>
         </SWRConfig>
       </RainbowKitProvider>
     </WagmiConfig>
