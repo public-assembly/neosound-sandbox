@@ -2,7 +2,7 @@ import Image from 'next/image'
 const About = () => {
   return (
     <div className="flex flex-col justify-between items-start text-stone-200 gap-4 md:max-w-4xl">
-      <div className="w-72">
+      <div className="w-full sm:w-72">
         <Image
           src="/logos/logo.svg"
           alt="logo"
@@ -12,7 +12,7 @@ const About = () => {
           layout="responsive"
         />
       </div>
-      <h1 className="text-3xl font-bold mt-12">Welcome</h1>
+      <h1 className="text-3xl font-bold mt-12">Introduction</h1>
       <p className="font-light text-stone-300">
         In contrast to the physical world, only one degree of separation lies between
         everyone on the internet. Today, we are exploring tools such as Neosound that help

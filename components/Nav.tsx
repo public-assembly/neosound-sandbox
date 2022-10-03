@@ -1,38 +1,45 @@
-import { useState } from 'react'
+import Link from 'next/link'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-import Link from 'next/link'
+import { useState } from 'react'
 
-export const Nav = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+const pages = [
+  {
+    slug: '/',
+    title: 'Listen',
+  },
+  {
+    slug: '/curate',
+    title: 'Curate',
+  },
+  {
+    slug: '/deploy',
+    title: 'Deploy',
+  },
+  {
+    slug: '/about',
+    title: 'About',
+  },
+]
+
+export function Nav(): JSX.Element {
   const router = useRouter()
-  const listenPage = router.pathname === '/'
-  const curatePage = router.pathname === '/curate'
-  const deployPage = router.pathname === '/deploy'
-  const aboutPage = router.pathname === '/about'
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
   return (
-    <nav className="pa_nav flex items-center  justify-start text-neutral-400">
-      <div className="pa_nav__links-group hidden sm:flex items-center gap-3">
-        <Link href={'/'}>
-          <button className={`${listenPage && 'pa_nav__item_current'} pa_nav__item `}>
-            Listen
-          </button>
-        </Link>
-        <Link href={'/'}>
-          <button className={`${curatePage && 'pa_nav__item_current'} pa_nav__item `}>
-            Curate
-          </button>
-        </Link>
-        <Link href={'/'}>
-          <button className={`${deployPage && 'pa_nav__item_current'} pa_nav__item `}>
-            Deploy
-          </button>
-        </Link>
-        <Link href={'/about'}>
-          <button className={`${aboutPage && 'pa_nav__item_current'} pa_nav__item `}>
-            About
-          </button>
-        </Link>
+    <>
+      {/* DESKTOP NAV */}
+      <div className="hidden sm:flex flex-row gap-4">
+        {pages.map((page) => (
+          <Link passHref href={page.slug} key={page.slug}>
+            <button
+              className={`${
+                router.asPath === page.slug ? 'ns-nav__item_current' : 'ns-nav__item'
+              }`}>
+              {page.title}
+            </button>
+          </Link>
+        ))}
       </div>
       <div className="block sm:hidden">
         <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
@@ -43,51 +50,37 @@ export const Nav = () => {
             height={32}
           />
         </button>
-        {mobileMenuOpen && (
-          <div className="text-6xl font-semibold  text-black absolute inset-0 bg-pink-400 h-screen   flex flex-col justify-center z-50">
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="fixed top-3 left-6">
-              <Image
-                src={'/neosound-icons/mobileMenu/mobileMenu-close.svg'}
-                alt="Menu close"
-                width={32}
-                height={32}
-              />
-            </button>
-            <div className="flex flex-col gap-6  ">
-              <Link href={'/'}>
+      </div>
+      {/* MOBILE NAV */}
+      {mobileMenuOpen && (
+        <div className="sm:hidden text-6xl font-semibold  absolute inset-0 ns-mobile__menu h-screen   flex flex-col justify-center z-50">
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="fixed top-2 left-6">
+            <Image
+              src={'/neosound-icons/mobileMenu/mobileMenu-close.svg'}
+              alt="Menu close"
+              width={32}
+              height={32}
+            />
+          </button>
+          {pages.map((page) => (
+            <div key={page.slug} className="flex flex-col gap-y-12">
+              <Link passHref href={page.slug}>
                 <button
-                  className={`${listenPage && 'pa_nav__item_current'} pa_nav__item `}
+                  className={`${
+                    router.asPath === page.slug
+                      ? 'ns-nav__mobile_item_current'
+                      : 'ns-nav__mobile_item'
+                  } mt-4`}
                   onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-                  Listen
-                </button>
-              </Link>
-              <Link href={'/'}>
-                <button
-                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                  className={`${curatePage && 'pa_nav__item_current'} pa_nav__item `}>
-                  Curate
-                </button>
-              </Link>
-              <Link href={'/'}>
-                <button
-                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                  className={`${deployPage && 'pa_nav__item_current'} pa_nav__item `}>
-                  Deploy
-                </button>
-              </Link>
-              <Link href={'/about'}>
-                <button
-                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                  className={`${aboutPage && 'pa_nav__item_current'} pa_nav__item `}>
-                  About
+                  {page.title}
                 </button>
               </Link>
             </div>
-          </div>
-        )}
-      </div>
-    </nav>
+          ))}
+        </div>
+      )}
+    </>
   )
 }

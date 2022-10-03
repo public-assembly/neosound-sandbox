@@ -1,33 +1,60 @@
-import { ConnectButton as RKConnectButton } from '@rainbow-me/rainbowkit'
-import { Avatar } from './elements/Avatar'
+import { ConnectButton } from '@rainbow-me/rainbowkit'
+import { useAuth } from 'hooks/useAuth'
 
-export function ConnectButton({ ...props }) {
+const ConnectBtn = () => {
+  const { logout } = useAuth()
   return (
-    <div
-      className="connect-button-wrapper relative flex items-center pr-3 pl-1.5 py-1.5 rounded-2xl bg-slate-100 overflow-hidden"
-      {...props}
-    >
-      <RKConnectButton.Custom>
-        {({ account, chain, openAccountModal, openConnectModal, mounted }) => {
-          return (
-            <>
-              {(() => {
-                if (!mounted || !account || !chain) {
-                  return <button onClick={openConnectModal}>Connect Wallet</button>
-                }
+    <ConnectButton.Custom>
+      {({
+        account,
+        chain,
+        openChainModal,
+        openConnectModal,
+        authenticationStatus,
+        mounted,
+      }) => {
+        const ready = mounted && authenticationStatus !== 'loading'
+        const connected = ready && account && chain
+
+        return (
+          <div
+            {...(!ready && {
+              'aria-hidden': true,
+              style: {
+                opacity: 0,
+                pointerEvents: 'none',
+                userSelect: 'none',
+              },
+            })}>
+            {(() => {
+              if (!connected) {
+                return null
+              }
+
+              if (chain.unsupported) {
                 return (
-                  <button onClick={openAccountModal}>
-                    <div className="flex items-center gap-2">
-                      <Avatar />
-                      {account.displayName}
-                    </div>
+                  <button onClick={openChainModal} type="button">
+                    Wrong network
                   </button>
                 )
-              })()}
-            </>
-          )
-        }}
-      </RKConnectButton.Custom>
-    </div>
+              }
+
+              return (
+                <div style={{ display: 'flex', gap: 12 }}>
+                  <button
+                    onClick={() => logout()}
+                    type="button"
+                    className="flex items-center ns-textLight border border-white px-4 py-1  hover:text-white">
+                    DISCONNECT
+                  </button>
+                </div>
+              )
+            })()}
+          </div>
+        )
+      }}
+    </ConnectButton.Custom>
   )
 }
+
+export default ConnectBtn

@@ -1,9 +1,4 @@
 :root {
-  --header-height: 100px;
+  --header-height: 80px;
   --footer-height: 60px;
-
-  /* NAV LINKS */
-  --nav-item: green;
-  --nav-item-hover: pink;
-  --nav-item-current: yellow;
 }
