@@ -7,9 +7,9 @@ import '@rainbow-me/rainbowkit/styles.css'
 import { ViewProvider } from 'context/viewsContext'
 import { MintContextProvider } from 'context/mintingModalsContext'
 
-const { chains, provider } = configureChains([chain.mainnet], [publicProvider()])
+const { chains, provider } = configureChains([chain.mainnet, chain.goerli], [publicProvider()])
 const { connectors } = getDefaultWallets({
-  appName: 'BlockSyncer',
+  appName: 'NeoSound',
   chains,
 })
 
