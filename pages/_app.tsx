@@ -1,5 +1,7 @@
 import 'styles/globals.css'
 import 'styles/neosound.css'
+import 'styles/authflow.css'
+
 import type { AppProps } from 'next/app'
 import { AppWrapper, PageWrapper } from './../components'
 

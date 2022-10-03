@@ -20,6 +20,7 @@ const wagmiClient = createClient({
 })
 
 //IN CUSTOMIZATION PROGRESS
+/*
 const myCustomTheme: Theme = {
   blurs: {
     modalOverlay: '#050a09',
@@ -73,10 +74,11 @@ const myCustomTheme: Theme = {
     walletLogo: '...',
   },
 }
+*/
 export function AppWrapper({ children }: { children: JSX.Element }) {
   return (
     <WagmiConfig client={wagmiClient}>
-      <RainbowKitProvider chains={chains} coolMode theme={myCustomTheme}>
+      <RainbowKitProvider chains={chains} >
         <SWRConfig
           value={{
             fetcher: (resource, init) => fetch(resource, init).then((res) => res.json()),

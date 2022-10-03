@@ -4,8 +4,9 @@ import { useAuth } from 'hooks/useAuth'
 const ConnectBtn = () => {
   const { logout } = useAuth()
   return (
-
-    <ConnectButton.Custom>
+    <>
+    {/* 
+      <ConnectButton.Custom>
       {({
         account,
         chain,
@@ -41,7 +42,7 @@ const ConnectBtn = () => {
       className="connect-button-wrapper relative flex items-center pr-3 pl-3 py-1.5 rounded-2xl bg-slate-100 overflow-hidden"
       {...props}
     >
-      <RKConnectButton.Custom>
+      <ConnectButton.Custom>
         {({ account, chain, openAccountModal, openConnectModal, mounted }) => {
           return (
             <>
@@ -77,7 +78,8 @@ const ConnectBtn = () => {
           </div>
         )
       }}
-    </ConnectButton.Custom>
+                      </ConnectButton.Custom>*/}
+                      </>
   )
 }
 
