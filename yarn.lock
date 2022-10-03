@@ -790,11 +790,6 @@
   resolved "https://registry.yarnpkg.com/@public-assembly/assemble-curation-functions/-/assemble-curation-functions-0.0.8.tgz#70b52cb80cf94c7683c0b7a832cc37263d21788e"
   integrity sha512-EN/rZMttJcnZ12FneVFCrQTPIEG0aX+kmFOcJi+6UmENZXAcMEIOtBbCXgUsLe43mdCiG0P6cCXEYyswLL5ryQ==
 
-"@public-assembly/zora-editions-audio-minter@^0.0.0":
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/@public-assembly/zora-editions-audio-minter/-/zora-editions-audio-minter-0.0.0.tgz#3f4efd7c4b22fd52000e4b9b4356fde8516b6953"
-  integrity sha512-RZHtA7VflLWyfEiAmrYtNeBf/CXoF9nazywENGMGKhXm01HvjTCp9RnZJuS4I12eluJRmdacmngShe4ktZZ4mw==
-
 "@rainbow-me/rainbowkit@^0.5.0":
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/@rainbow-me/rainbowkit/-/rainbowkit-0.5.0.tgz#6fcb2ec343e789ba1fa260d8bfa36abab2b79a48"
