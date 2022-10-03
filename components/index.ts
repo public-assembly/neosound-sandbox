@@ -1,3 +1,3 @@
 export * from './AppWrapper'
 export * from './PageWrapper'
-export * from './connect'
+export * from './auth'

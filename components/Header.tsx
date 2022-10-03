@@ -1,4 +1,4 @@
-import { DisconnectButton } from './connect'
+import { DisconnectButton } from './auth'
 import { Nav } from './Nav'
 
 export function Header() {
